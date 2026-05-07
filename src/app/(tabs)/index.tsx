@@ -1,5 +1,6 @@
 import { ProgressBar } from "@/components/ProgressBar";
 import { WasteTypeIcon } from "@/components/WasteTypeIcon";
+import { R3Logo } from "@/components/R3Logo";
 import { R3_COLORS, WEEKLY_GOAL_KG } from "@/constants/theme";
 import { useAuth } from "@/context/AuthContext";
 import {
@@ -67,8 +68,7 @@ export default function DashboardScreen() {
         {/* Top bar */}
         <View className="mt-2 flex-row items-center justify-between">
           <View className="flex-row items-end">
-            <Text className="text-2xl font-black text-[oklch(0.62_0.19_145)]">R</Text>
-            <Text className="text-lg font-black text-[oklch(0.62_0.19_145)]">³</Text>
+            <R3Logo height={36} accessibilityLabel="R³" />
           </View>
           <View className="flex-row items-center gap-3">
             <View className={`flex-row items-center gap-2 rounded-full border px-3 py-2 ${pillBorder}`}>

@@ -9,8 +9,15 @@ import { Redirect, router } from "expo-router";
 import { useState } from "react";
 import { Dimensions, KeyboardAvoidingView, Platform, Pressable, ScrollView, Text, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { R3Logo } from "@/components/R3Logo";
 
-const { height: WINDOW_HEIGHT } = Dimensions.get("window");
+const { height: WINDOW_HEIGHT_RAW } = Dimensions.get("window");
+const WINDOW_HEIGHT =
+  typeof WINDOW_HEIGHT_RAW === "number" &&
+    Number.isFinite(WINDOW_HEIGHT_RAW) &&
+    WINDOW_HEIGHT_RAW > 0
+    ? WINDOW_HEIGHT_RAW
+    : 800;
 
 export default function SignInScreen() {
   const { user, signIn } = useAuth();
@@ -28,6 +35,12 @@ export default function SignInScreen() {
   }
 
   const headerHeight = WINDOW_HEIGHT * 0.3;
+  const logoHeightRaw = Math.round(headerHeight);
+  // En export web estático, `Dimensions` puede venir raro; forzamos un rango visual.
+  const logoHeight =
+    Number.isFinite(logoHeightRaw) && logoHeightRaw > 0
+      ? Math.max(120, Math.min(240, logoHeightRaw))
+      : 180;
 
   const toggleRegister = () => {
     setRegisterMode(!registerMode);
@@ -71,10 +84,10 @@ export default function SignInScreen() {
           <View className="absolute -right-8 -top-16 h-48 w-48 rounded-full bg-white/10" />
           <View className="absolute -left-10 top-10 h-40 w-40 rounded-full bg-black/5" />
           <View className="flex-1 items-center justify-center px-6 pt-12">
-            <View className="flex-row items-start justify-center">
-              <Text className="text-6xl font-black text-white">R</Text>
-              <Text className="mt-1 text-3xl font-black text-white">³</Text>
-            </View>
+            <R3Logo
+              accessibilityLabel="R³"
+              height={logoHeight}
+            />
             <Text className="mt-3 text-center text-sm font-semibold uppercase tracking-wide text-white">
               🍃 RECICLA · REGISTRA · REPORTA 🍃
             </Text>
