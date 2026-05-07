@@ -1,0 +1,15 @@
+@import "tailwindcss";
+@import "uniwind";
+
+@import "heroui-native/styles";
+
+@source "../node_modules/heroui-native/lib";
+
+@theme {
+  --color-r3-primary: oklch(0.62 0.19 145);
+  --color-r3-background: oklch(1 0 0);
+  --color-r3-foreground: oklch(0.15 0 0);
+  --color-r3-border: oklch(0.85 0 0);
+  --color-r3-muted: oklch(0.45 0 0);
+  --color-r3-warning: oklch(0.7 0.15 70);
+}

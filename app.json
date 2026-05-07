@@ -1,0 +1,39 @@
+{
+  "expo": {
+    "name": "R³",
+    "slug": "r3-reciclaje",
+    "scheme": "r3",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "plugins": [
+      "expo-router",
+      "expo-sqlite",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "R³ necesita acceso a tus fotos para adjuntar evidencia.",
+          "cameraPermission": "R³ usa la cámara para documentar el punto de recolección."
+        }
+      ],
+      "expo-font",
+      "expo-secure-store",
+      "@react-native-community/datetimepicker"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "ios": {
+      "supportsTablet": false
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#16a34a"
+      }
+    },
+    "web": {
+      "output": "static"
+    }
+  }
+}
